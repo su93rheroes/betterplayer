@@ -17,6 +17,30 @@ class BetterPlayerDataSource {
   BetterPlayerDataSource(this.type, this.url,
       {this.subtitles, this.liveStream = false});
 
+  factory BetterPlayerDataSource.network(
+    String url, {
+    BetterPlayerSubtitlesSource subtitles,
+    bool liveStream = false,
+  }) =>
+      BetterPlayerDataSource(
+        BetterPlayerDataSourceType.NETWORK,
+        url,
+        subtitles: subtitles,
+        liveStream: liveStream,
+      );
+
+  factory BetterPlayerDataSource.file(
+    String url, {
+    BetterPlayerSubtitlesSource subtitles,
+    bool liveStream = false,
+  }) =>
+      BetterPlayerDataSource(
+        BetterPlayerDataSourceType.FILE,
+        url,
+        subtitles: subtitles,
+        liveStream: liveStream,
+      );
+
   @override
   String toString() {
     return 'BetterPlayerDataSource{type: $type, url: $url, subtitles: $subtitles, liveStream: $liveStream}';
